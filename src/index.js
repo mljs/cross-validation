@@ -10,7 +10,7 @@ CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
     }
     const distinct = getDistinct(labels);
 
-    const confusionMatrix = new Array(distinct.size).fill(0).map(() => new Array(distinct.size).fill(0));
+    const confusionMatrix = new Array(distinct.length).fill(0).map(() => new Array(distinct.length).fill(0));
     var correct = 0;
     const len = features.length;
     for (let i = 0; i < len; i++) {
@@ -26,13 +26,14 @@ CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
         if(testLabels[0] === predictedLabels[0]) {
             correct++;
         }
-        confusionMatrix[distinct.get(testLabels[0])][distinct.get(predictedLabels[0])]++;
+        confusionMatrix[distinct.indexOf(testLabels[0])][distinct.indexOf(predictedLabels[0])]++;
 
     }
 
     return {
         confusionMatrix,
-        accuracy: correct / len
+        accuracy: correct / len,
+        labels: Array.from(distinct)
     };
 };
 
@@ -41,10 +42,5 @@ function getDistinct(arr) {
     for(let i=0; i<arr.length; i++) {
         s.add(arr[i]);
     }
-    var r = new Map();
-    var c = 0;
-    s.forEach(function(el) {
-        r.set(el, c++);
-    });
-    return r;
+    return Array.from(s);
 }

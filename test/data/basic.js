@@ -5,7 +5,8 @@ module.exports = [{
     labels: [-1, 0, 1],
     result: {
         accuracy: 1,
-        confusionMatrix: [[1,0,0],[0,1,0],[0,0,1]]
+        confusionMatrix: [[1,0,0],[0,1,0],[0,0,1]],
+        labels: [-1, 0, 1]
         // specificity: 1,
         // sensitivity: 1,
         // FNR: 0,
@@ -13,4 +14,4 @@ module.exports = [{
         // TPR: 1,
         // TNR: 1
     }
-}]
+}];
