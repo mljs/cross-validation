@@ -1,0 +1,32 @@
+{
+  "name": "ml-cross-validation",
+  "version": "1.0.0",
+  "description": "Cross validation utility for mljs classifiers",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --require should --reporter mocha-better-spec-reporter --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mljs/cross-validation.git"
+  },
+  "keywords": [
+    "cross",
+    "validation",
+    "mljs",
+    "machine",
+    "learning",
+    "classifier"
+  ],
+  "author": "Daniel Kostro <kostro.d@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mljs/cross-validation/issues"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.1",
+    "mocha-better-spec-reporter": "^3.0.2",
+    "should": "^9.0.2"
+  },
+  "homepage": "https://github.com/mljs/cross-validation#readme"
+}
