@@ -4,7 +4,8 @@
   "description": "Cross validation utility for mljs classifiers",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --require should --reporter mocha-better-spec-reporter --recursive"
+    "test": "mocha --require should --reporter mocha-better-spec-reporter --recursive",
+    "build": "cheminfo build -- -b"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "url": "https://github.com/mljs/cross-validation/issues"
   },
   "devDependencies": {
+    "cheminfo-tools": "^1.7.0",
     "mocha": "^2.5.1",
     "mocha-better-spec-reporter": "^3.0.2",
     "should": "^9.0.2"
