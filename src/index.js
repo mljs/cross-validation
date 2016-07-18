@@ -33,7 +33,7 @@ CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
     return {
         confusionMatrix,
         accuracy: correct / len,
-        labels: Array.from(distinct)
+        labels: distinct
     };
 };
 
