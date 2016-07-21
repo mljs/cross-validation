@@ -32,6 +32,6 @@
   },
   "homepage": "https://github.com/mljs/cross-validation#readme",
   "dependencies": {
-    "ml-combinations": "^1.0.0"
+    "ml-combinations": "^1.0.1"
   }
 }
