@@ -18,5 +18,13 @@ describe('basic', function () {
             var result = CV.leavePOut(Dummy, LPO[i].features, LPO[i].labels, LPO[i].classifierOptions, LPO[i].p);
             result.should.deepEqual(LPO[i].result);
         }
-    })
+    });
+
+    it('basic k-fold cross-validation', function () {
+        var KF = require('./data/KF-CV');
+        for(let i=0; i<KF.length; i++) {
+            var result = CV.kFold(Dummy, KF[i].features, KF[i].labels, KF[i].classifierOptions, KF[i].k);
+            result.should.deepEqual(KF[i].result);
+        }
+    });
 });
