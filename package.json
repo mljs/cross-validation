@@ -30,5 +30,8 @@
     "mocha-better-spec-reporter": "^3.0.2",
     "should": "^9.0.2"
   },
-  "homepage": "https://github.com/mljs/cross-validation#readme"
+  "homepage": "https://github.com/mljs/cross-validation#readme",
+  "dependencies": {
+    "ml-combinations": "^1.0.0"
+  }
 }

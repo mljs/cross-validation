@@ -7,7 +7,8 @@ module.exports = [
         result: {
             accuracy: 1,
             confusionMatrix: [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
-            labels: [-1, 0, 1]
+            labels: [-1, 0, 1],
+            nbPrediction: 3
         }
     },
     {
@@ -16,7 +17,8 @@ module.exports = [
         result: {
             accuracy: 1 / 2,
             confusionMatrix: [[1, 2], [0, 1]],
-            labels: [1, -1]
+            labels: [1, -1],
+            nbPrediction: 4
         }
     }
 ];
