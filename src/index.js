@@ -1,4 +1,5 @@
 'use strict';
+const ConfusionMatrix = require('./ConfusionMatrix');
 
 const CV = {};
 const combinations = require('ml-combinations');
@@ -11,7 +12,7 @@ const combinations = require('ml-combinations');
  * @param {Array} features - The features for all samples of the data-set
  * @param {Array} labels - The classification class of all samples of the data-set
  * @param {Object} classifierOptions - The classifier options with which the classifier should be instantiated.
- * @returns {{confusionMatrix, accuracy: number, labels, nbPrediction: number}}
+ * @returns {ConfusionMatrix} - The cross-validation confusion matrix
  */
 CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
     return CV.leavePOut(Classifier, features, labels, classifierOptions, 1);
@@ -28,13 +29,12 @@ CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
  * @param {Array} labels - The classification class of all samples of the data-set
  * @param {Object} classifierOptions - The classifier options with which the classifier should be instantiated.
  * @param {Number} p - The size of the validation sub-samples' set
- * @returns {{confusionMatrix, accuracy: number, labels, nbPrediction: number}}
+ * @returns {ConfusionMatrix} - The cross-validation confusion matrix
  */
 CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
     check(features, labels);
     const distinct = getDistinct(labels);
     const confusionMatrix = initMatrix(distinct.length, distinct.length);
-    var correct = 0, total = 0;
     var i, N = features.length;
     var gen = combinations(p, N);
     var allIdx = new Array(N);
@@ -49,15 +49,9 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
         }
 
         var res = validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct);
-        total += res.total;
-        correct += res.correct;
     }
-    return {
-        confusionMatrix,
-        accuracy: correct / total,
-        labels: distinct,
-        nbPrediction: total
-    };
+
+    return new ConfusionMatrix(confusionMatrix, distinct);
 };
 
 /**
@@ -69,7 +63,7 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
  * @param {Array} labels - The classification class of all samples of the data-set
  * @param {Object} classifierOptions - The classifier options with which the classifier should be instantiated.
  * @param {Number} k - The number of partitions to create
- * @returns {{confusionMatrix, accuracy: number, labels, nbPrediction: number}}
+ * @returns {ConfusionMatrix} - The cross-validation confusion matrix
  */
 CV.kFold = function (Classifier, features, labels, classifierOptions, k) {
     check(features, labels);
