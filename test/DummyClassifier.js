@@ -1,8 +1,8 @@
 'use strict';
 
 class Dummy {
-    constructor(options = {}) {
-        this.threshold = options.threshold || 0;
+    constructor() {
+        this.threshold = 0;
     }
 
     train() {
