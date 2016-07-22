@@ -39,7 +39,7 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
     };
 };
 
-CV.kFold = function(Classifier, features, labels, classifierOptions, k) {
+CV.kFold = function (Classifier, features, labels, classifierOptions, k) {
     check(features, labels);
     const distinct = getDistinct(labels);
     const confusionMatrix = initMatrix(distinct.length, distinct.length);
@@ -54,24 +54,24 @@ CV.kFold = function(Classifier, features, labels, classifierOptions, k) {
     // create random k-folds
     var current = [];
     var folds = [];
-    while(allIdx.length) {
-        var randi = Math.floor(Math.random()*allIdx.length);
+    while (allIdx.length) {
+        var randi = Math.floor(Math.random() * allIdx.length);
         current.push(allIdx[randi]);
         allIdx.splice(randi, 1);
-        if(current.length === l) {
+        if (current.length === l) {
             folds.push(current);
             current = [];
         }
     }
-    if(current.length) folds.push(current);
+    if (current.length) folds.push(current);
     folds = folds.slice(0, k);
 
 
-    for(i=0; i<folds.length; i++) {
+    for (i = 0; i < folds.length; i++) {
         var testIdx = folds[i];
         var trainIdx = [];
-        for(var j=0; j<folds.length; j++) {
-            if(j !== i) trainIdx = trainIdx.concat(folds[j]);
+        for (var j = 0; j < folds.length; j++) {
+            if (j !== i) trainIdx = trainIdx.concat(folds[j]);
         }
 
         var res = validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct);
