@@ -1,4 +1,5 @@
 'use strict';
+
 const ConfusionMatrix = require('./ConfusionMatrix');
 
 const CV = {};
@@ -43,7 +44,7 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
     }
     for (const testIdx of gen) {
         var trainIdx = allIdx.slice();
-        
+
         for (i = testIdx.length - 1; i >= 0; i--) {
             trainIdx.splice(testIdx[i], 1);
         }
