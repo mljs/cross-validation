@@ -1,6 +1,6 @@
 {
   "name": "ml-cross-validation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cross validation utility for mljs classifiers",
   "main": "src/crossValidation.js",
   "scripts": {
