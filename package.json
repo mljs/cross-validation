@@ -2,7 +2,7 @@
   "name": "ml-cross-validation",
   "version": "0.0.1",
   "description": "Cross validation utility for mljs classifiers",
-  "main": "src/index.js",
+  "main": "src/crossValidation.js",
   "scripts": {
     "eslint": "eslint src test",
     "eslint-fix": "npm run eslint -- --fix",
