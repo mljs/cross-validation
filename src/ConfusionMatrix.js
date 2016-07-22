@@ -10,10 +10,10 @@ class ConfusionMatrix {
      * @param {Array} labels - Labels of the confusion matrix, a 1D Array
      */
     constructor(matrix, labels) {
-        if(matrix.length !== matrix[0].length) {
+        if (matrix.length !== matrix[0].length) {
             throw new Error('Confusion matrix must be square');
         }
-        if(labels.length !== matrix.length) {
+        if (labels.length !== matrix.length) {
             throw new Error('Confusion matrix and labels should have the same length');
         }
         this.labels = labels;
@@ -27,9 +27,9 @@ class ConfusionMatrix {
      */
     get accuracy() {
         var correct = 0, incorrect = 0;
-        for(var i=0; i<this.matrix.length; i++) {
-            for(var j=0; j<this.matrix.length; j++) {
-                if(i===j) correct += this.matrix[i][j];
+        for (var i = 0; i < this.matrix.length; i++) {
+            for (var j = 0; j < this.matrix.length; j++) {
+                if (i === j) correct += this.matrix[i][j];
                 else incorrect += this.matrix[i][j];
             }
         }
@@ -43,13 +43,13 @@ class ConfusionMatrix {
      */
     get nbPredicted() {
         var predicted = 0;
-        for(var i=0; i<this.matrix.length; i++) {
-            for(var j=0; j<this.matrix.length; j++) {
+        for (var i = 0; i < this.matrix.length; i++) {
+            for (var j = 0; j < this.matrix.length; j++) {
                 predicted += this.matrix[i][j];
             }
         }
         return predicted;
     }
-
-
 }
+
+module.exports = ConfusionMatrix;

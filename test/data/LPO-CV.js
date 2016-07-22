@@ -6,10 +6,8 @@ module.exports = [
         labels: [-1, 0, 1],
         p: 2,
         result: {
-            accuracy: 1,
-            confusionMatrix: [[2, 0, 0], [0, 2, 0], [0, 0, 2]],
-            labels: [-1, 0, 1],
-            nbPrediction: 6
+            matrix: [[2, 0, 0], [0, 2, 0], [0, 0, 2]],
+            labels: [-1, 0, 1]
         }
     },
     {
@@ -17,10 +15,8 @@ module.exports = [
         labels: [1, 1, -1, 1],
         p: 2,
         result: {
-            accuracy: 1 / 2,
-            confusionMatrix: [[3, 6], [0, 3]],
-            labels: [1, -1],
-            nbPrediction: 12
+            matrix: [[3, 6], [0, 3]],
+            labels: [1, -1]
         }
     }
 ];

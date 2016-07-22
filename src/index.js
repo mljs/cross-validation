@@ -48,7 +48,7 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
             trainIdx.splice(testIdx[i], 1);
         }
 
-        var res = validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct);
+        validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct);
     }
 
     return new ConfusionMatrix(confusionMatrix, distinct);
@@ -69,7 +69,6 @@ CV.kFold = function (Classifier, features, labels, classifierOptions, k) {
     check(features, labels);
     const distinct = getDistinct(labels);
     const confusionMatrix = initMatrix(distinct.length, distinct.length);
-    var correct = 0, total = 0;
     var N = features.length;
     var allIdx = new Array(N);
     for (var i = 0; i < N; i++) {
@@ -100,18 +99,10 @@ CV.kFold = function (Classifier, features, labels, classifierOptions, k) {
             if (j !== i) trainIdx = trainIdx.concat(folds[j]);
         }
 
-        var res = validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct);
-        total += res.total;
-        correct += res.correct;
+        validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct);
     }
 
-    return {
-        confusionMatrix,
-        accuracy: correct / total,
-        labels: distinct,
-        nbPrediction: total
-    };
-
+    return new ConfusionMatrix(confusionMatrix, distinct);
 };
 
 function check(features, labels) {
@@ -133,7 +124,6 @@ function getDistinct(arr) {
 }
 
 function validate(Classifier, features, labels, classifierOptions, testIdx, trainIdx, confusionMatrix, distinct) {
-    var correct = 0;
     var testFeatures = testIdx.map(function (index) {
         return features[index];
     });
@@ -151,13 +141,8 @@ function validate(Classifier, features, labels, classifierOptions, testIdx, trai
     classifier.train(trainFeatures, trainLabels);
     var predictedLabels = classifier.predict(testFeatures);
     for (var i = 0; i < predictedLabels.length; i++) {
-        if (testLabels[i] === predictedLabels[i]) {
-            correct++;
-        }
         confusionMatrix[distinct.indexOf(testLabels[i])][distinct.indexOf(predictedLabels[i])]++;
     }
-
-    return { total: testIdx.length, correct };
 }
 
 module.exports = CV;
