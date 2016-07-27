@@ -12,7 +12,7 @@ describe('basic', function () {
             CM.labels.should.deepEqual(LOO[i].result.labels);
         }
     });
-    
+
     it('basic leave-p-out cross-validation', function () {
         var LPO = require('./data/LPO-CV');
         for (let i = 0; i < LPO.length; i++) {
