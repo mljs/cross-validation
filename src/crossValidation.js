@@ -9,11 +9,11 @@ const combinations = require('ml-combinations');
  * Performs a leave-one-out cross-validation (LOO-CV) of the given samples. In LOO-CV, 1 observation is used as the validation
  * set while the rest is used as the training set. This is repeated once for each observation. LOO-CV is a special case
  * of LPO-CV. @see leavePout
- * @param {constructor} Classifier - The classifier to use for the cross validation. Expect ml-classifier api.
+ * @param {function} Classifier - The classifier's constructor to use for the cross validation. Expect ml-classifier api.
  * @param {Array} features - The features for all samples of the data-set
  * @param {Array} labels - The classification class of all samples of the data-set
- * @param {Object} classifierOptions - The classifier options with which the classifier should be instantiated.
- * @returns {ConfusionMatrix} - The cross-validation confusion matrix
+ * @param {object} classifierOptions - The classifier options with which the classifier should be instantiated.
+ * @return {ConfusionMatrix} - The cross-validation confusion matrix
  */
 CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
     return CV.leavePOut(Classifier, features, labels, classifierOptions, 1);
@@ -25,12 +25,12 @@ CV.leaveOneOut = function (Classifier, features, labels, classifierOptions) {
  * validation set while the rest is used as the training set. This is repeated as many times as there are possible
  * ways to combine p observations from the set (unordered without replacement). Be aware that for relatively small
  * data-set size this can require a very large number of training and testing to do!
- * @param Classifier - The classifier to use for the cross validation. Expect ml-classifier api.
+ * @param {function} Classifier - The classifier's constructor to use for the cross validation. Expect ml-classifier api.
  * @param {Array} features - The features for all samples of the data-set
  * @param {Array} labels - The classification class of all samples of the data-set
- * @param {Object} classifierOptions - The classifier options with which the classifier should be instantiated.
- * @param {Number} p - The size of the validation sub-samples' set
- * @returns {ConfusionMatrix} - The cross-validation confusion matrix
+ * @param {object} classifierOptions - The classifier options with which the classifier should be instantiated.
+ * @param {number} p - The size of the validation sub-samples' set
+ * @return {ConfusionMatrix} - The cross-validation confusion matrix
  */
 CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
     check(features, labels);
@@ -59,12 +59,12 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
  * Performs k-fold cross-validation (KF-CV). KF-CV separates the data-set into k random equally sized partitions, and
  * uses each as a validation set, with all other partitions used in the training set. Observations left over from if k
  * does not divide the number of observations are left out of the cross-validation process.
- * @param Classifier - The classifier to use for the cross validation. Expect ml-classifier api.
+ * @param {function} Classifier - The classifier's to use for the cross validation. Expect ml-classifier api.
  * @param {Array} features - The features for all samples of the data-set
  * @param {Array} labels - The classification class of all samples of the data-set
- * @param {Object} classifierOptions - The classifier options with which the classifier should be instantiated.
- * @param {Number} k - The number of partitions to create
- * @returns {ConfusionMatrix} - The cross-validation confusion matrix
+ * @param {object} classifierOptions - The classifier options with which the classifier should be instantiated.
+ * @param {number} k - The number of partitions to create
+ * @return {ConfusionMatrix} - The cross-validation confusion matrix
  */
 CV.kFold = function (Classifier, features, labels, classifierOptions, k) {
     check(features, labels);

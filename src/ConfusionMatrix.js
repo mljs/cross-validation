@@ -23,7 +23,7 @@ class ConfusionMatrix {
 
     /**
      * Compute the general prediction accuracy
-     * @returns {number} - The prediction accuracy ([0-1]
+     * @return {number} - The prediction accuracy ([0-1]
      */
     get accuracy() {
         var correct = 0, incorrect = 0;
@@ -39,7 +39,7 @@ class ConfusionMatrix {
 
     /**
      * Compute the number of predicted observations
-     * @returns {number} - The number of predicted observations
+     * @return {number} - The number of predicted observations
      */
     get nbPredicted() {
         var predicted = 0;
