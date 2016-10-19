@@ -6,7 +6,7 @@
 
 Utility library to do cross validation with mljs classifiers
 
-A list of the mljs supervised classifiers is available [here](https://github.com/mljs/ml#tools)
+A list of the mljs supervised classifiers is available [here](https://github.com/mljs/ml#tools) in the supervised classifiers' section
 
 [Documentation](https://mljs.github.io/cross-validation/)
 
