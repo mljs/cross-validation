@@ -589,6 +589,10 @@ ml-combinations@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ml-combinations/-/ml-combinations-1.0.1.tgz#12de0e538d7ed5ff4fcf209924878ea66a8ba451"
 
+ml-confusion-matrix@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ml-confusion-matrix/-/ml-confusion-matrix-0.1.0.tgz#7c6877dbf5931fd3b51aabcf52bff87420fc6bc4"
+
 mocha-better-spec-reporter@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/mocha-better-spec-reporter/-/mocha-better-spec-reporter-3.1.0.tgz#b462d39264b901ecf20c8c9a469247452a579f8e"

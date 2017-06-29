@@ -1,6 +1,6 @@
 'use strict';
 
-const ConfusionMatrix = require('./ConfusionMatrix');
+const ConfusionMatrix = require('ml-confusion-matrix');
 
 const CV = {};
 const combinations = require('ml-combinations');
