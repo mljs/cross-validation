@@ -36,8 +36,6 @@
   },
   "homepage": "https://github.com/mljs/cross-validation#readme",
   "dependencies": {
-    "eslint": "^3.8.1",
-    "eslint-config-cheminfo": "^1.5.2",
     "ml-combinations": "^1.0.1"
   }
 }
