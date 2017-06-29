@@ -36,16 +36,17 @@ CV.leavePOut = function (Classifier, features, labels, classifierOptions, p) {
     check(features, labels);
     const distinct = getDistinct(labels);
     const confusionMatrix = initMatrix(distinct.length, distinct.length);
-    var i, N = features.length;
+
+    var N = features.length;
     var gen = combinations(p, N);
     var allIdx = new Array(N);
-    for (i = 0; i < N; i++) {
+    for (let i = 0; i < N; i++) {
         allIdx[i] = i;
     }
     for (const testIdx of gen) {
         var trainIdx = allIdx.slice();
 
-        for (i = testIdx.length - 1; i >= 0; i--) {
+        for (let i = testIdx.length - 1; i >= 0; i--) {
             trainIdx.splice(testIdx[i], 1);
         }
 
