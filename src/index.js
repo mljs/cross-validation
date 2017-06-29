@@ -139,11 +139,12 @@ function validate(Classifier, features, labels, classifierOptions, testIdx, trai
         return labels[index];
     });
 
-    if(Classifier.prototype.train) {
-        var classifier = new Classifier(classifierOptions);
+    var classifier;
+    if (Classifier.prototype.train) {
+        classifier = new Classifier(classifierOptions);
         classifier.train(trainFeatures, trainLabels);
     } else {
-        var classifier = new Classifier(trainFeatures, trainLabels, classifierOptions);
+        classifier = new Classifier(trainFeatures, trainLabels, classifierOptions);
     }
 
     var predictedLabels = classifier.predict(testFeatures);
