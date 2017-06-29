@@ -139,8 +139,13 @@ function validate(Classifier, features, labels, classifierOptions, testIdx, trai
         return labels[index];
     });
 
-    var classifier = new Classifier(classifierOptions);
-    classifier.train(trainFeatures, trainLabels);
+    if(Classifier.prototype.train) {
+        var classifier = new Classifier(classifierOptions);
+        classifier.train(trainFeatures, trainLabels);
+    } else {
+        var classifier = new Classifier(trainFeatures, trainLabels, classifierOptions);
+    }
+
     var predictedLabels = classifier.predict(testFeatures);
     for (var i = 0; i < predictedLabels.length; i++) {
         confusionMatrix[distinct.indexOf(testLabels[i])][distinct.indexOf(predictedLabels[i])]++;
