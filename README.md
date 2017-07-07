@@ -4,7 +4,7 @@
   [![build status][travis-image]][travis-url]
   [![npm download][download-image]][download-url]
 
-Utility library to do cross validation with mljs classifiers
+Utility library to do cross validation with supervised classifiers.
 
 Cross-validation methods: 
 - [k-fold](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation)
