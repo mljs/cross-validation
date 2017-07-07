@@ -19,6 +19,16 @@ A list of the mljs supervised classifiers is available [here](https://github.com
 npm i -s ml-cross-validation
 ```
 
+## Example
+```js
+const crossValidation = require('ml-cross-validation');
+const KNN = require('ml-knn');
+const dataset = [[0, 0, 0], [0, 1, 1], [1, 1, 0], [2, 2, 2], [1, 2, 2], [2, 1, 2]];
+const labels = [0, 0, 0, 1, 1, 1];
+const confusionMatrix = crossValidation.leaveOneOut(KNN, dataSet, labels);
+const accuracy = confusionMatrix.getAccuracy();
+```
+
 ## Use your own classification library with ml-cross-validation
 To be used with ml-cross-validation, your classification library must implement
 - A constructor. The constructor can be passed options as a single argument.
@@ -39,17 +49,6 @@ class MyClassifier {
   }
 }
 ```
-
-## Example
-```js
-const crossValidation = require('ml-cross-validation');
-const KNN = require('ml-knn');
-const dataset = [[0, 0, 0], [0, 1, 1], [1, 1, 0], [2, 2, 2], [1, 2, 2], [2, 1, 2]];
-const labels = [0, 0, 0, 1, 1, 1];
-const confusionMatrix = crossValidation.leaveOneOut(KNN, dataSet, labels);
-const accuracy = confusionMatrix.getAccuracy();
-```
-
 
 [npm-image]: https://img.shields.io/npm/v/ml-cross-validation.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/ml-cross-validation
