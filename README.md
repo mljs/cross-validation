@@ -29,7 +29,7 @@ const confusionMatrix = crossValidation.leaveOneOut(KNN, dataSet, labels);
 const accuracy = confusionMatrix.getAccuracy();
 ```
 
-## Example using a classifier with it's own specific API
+## Example using a classifier with its own specific API
 If you have a library that does not comply with the ML Classifier conventions, you can use can use a callback to perform the classification.
 The callback will take the train features and labels, and the test features. The callback shoud return the array of predicted labels.
 ```js
