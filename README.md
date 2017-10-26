@@ -45,7 +45,7 @@ const accuracy = confusionMatrix.getAccuracy();
 ```
 
 ## ML classifier API conventions
-You can write your classification library so that it can be used with ml-cross-validation as described in [here](#example-using-a-classifier-with-it-s-own-specific-api)
+You can write your classification library so that it can be used with ml-cross-validation as described in [here](#example-using-a-ml-classification-library)
 For that, your classification library must implement
 - A constructor. The constructor can be passed options as a single argument.
 - A `train` method. The `train` method is passed the data as a first argument and the labels as a second.
