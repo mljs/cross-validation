@@ -24,23 +24,23 @@ export function sampleAClass(classVector, fraction) {
 
   Object.keys(counts).forEach((e, i) => {
     let shift = [];
-    Object.values(counts).reduce((a, c, i) => (shift[i] = a + c), 0);
+    Object.values(counts).reduce((a, c, item) => (shift[item] = a + c), 0);
 
     let arr = [...Array(counts[e]).keys()];
 
     let r = [];
-    for (let i = 0; i < Math.floor(counts[e] * fraction); i++) {
+    for (let j = 0; j < Math.floor(counts[e] * fraction); j++) {
       let n = arr[Math.floor(Math.random() * arr.length)];
       r.push(n);
       let ind = arr.indexOf(n);
       arr.splice(ind, 1);
     }
 
-    i == 0
-      ? (indexOfSelected = indexOfSelected.concat(r))
-      : (indexOfSelected = indexOfSelected.concat(
-          r.map((x) => x + shift[i - 1]),
-        ));
+    if (i === 0) {
+      indexOfSelected = indexOfSelected.concat(r);
+    } else {
+      indexOfSelected = indexOfSelected.concat(r.map((x) => x + shift[i - 1]));
+    }
   });
 
   // sort back the index
