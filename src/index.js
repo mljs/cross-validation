@@ -1,6 +1,8 @@
 import ConfusionMatrix from 'ml-confusion-matrix';
 import combinations from 'ml-combinations';
 
+import { getFolds } from './getFolds.js';
+
 /**
  * Performs a leave-one-out cross-validation (LOO-CV) of the given samples. In LOO-CV, 1 observation is used as the
  * validation set while the rest is used as the training set. This is repeated once for each observation. LOO-CV is a
@@ -110,34 +112,12 @@ export function kFold(Classifier, features, labels, classifierOptions, k) {
   check(features, labels);
   const distinct = getDistinct(labels);
   const confusionMatrix = initMatrix(distinct.length, distinct.length);
-  let N = features.length;
-  let allIdx = new Array(N);
-  for (let i = 0; i < N; i++) {
-    allIdx[i] = i;
-  }
 
-  let l = Math.floor(N / k);
-  // create random k-folds
-  let current = [];
-  let folds = [];
-  while (allIdx.length) {
-    let randi = Math.floor(Math.random() * allIdx.length);
-    current.push(allIdx[randi]);
-    allIdx.splice(randi, 1);
-    if (current.length === l) {
-      folds.push(current);
-      current = [];
-    }
-  }
-  if (current.length) folds.push(current);
-  folds = folds.slice(0, k);
+  let folds = getFolds(features, k);
 
   for (let i = 0; i < folds.length; i++) {
-    let testIdx = folds[i];
-    let trainIdx = [];
-    for (let j = 0; j < folds.length; j++) {
-      if (j !== i) trainIdx = trainIdx.concat(folds[j]);
-    }
+    let testIdx = folds[i].testIndex;
+    let trainIdx = folds[i].trainIndex;
 
     if (callback) {
       validateWithCallback(
