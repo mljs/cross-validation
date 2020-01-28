@@ -15,6 +15,13 @@
     "test": "npm run testonly && npm run eslint",
     "testonly": "jest"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/data/",
+      "Dummy"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mljs/cross-validation.git"
@@ -33,10 +40,15 @@
     "url": "https://github.com/mljs/cross-validation/issues"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
     "eslint": "^6.8.0",
     "eslint-config-cheminfo": "^2.0.4",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^23.6.0",
     "eslint-plugin-no-only-tests": "^2.4.0",
-    "jest": "^25.1.0"
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
   },
   "homepage": "https://github.com/mljs/cross-validation#readme",
   "dependencies": {
