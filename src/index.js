@@ -3,6 +3,9 @@ import combinations from 'ml-combinations';
 
 import { getFolds } from './getFolds.js';
 
+export { sampleAClass } from './sampleAClass.js';
+export { getFolds } from './getFolds.js';
+
 /**
  * Performs a leave-one-out cross-validation (LOO-CV) of the given samples. In LOO-CV, 1 observation is used as the
  * validation set while the rest is used as the training set. This is repeated once for each observation. LOO-CV is a
