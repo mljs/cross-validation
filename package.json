@@ -2,12 +2,18 @@
   "name": "ml-cross-validation",
   "version": "1.2.0",
   "description": "Cross validation utility for mljs classifiers",
-  "main": "src",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
-    "eslint": "eslint src test",
+    "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "test": "npm run test-mocha && npm run eslint",
-    "test-mocha": "mocha --require should --reporter mocha-better-spec-reporter"
+    "prepublishOnly": "npm run compile",
+    "test": "npm run testonly && npm run eslint",
+    "testonly": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,16 +33,14 @@
     "url": "https://github.com/mljs/cross-validation/issues"
   },
   "devDependencies": {
-    "eslint": "^4.1.1",
-    "eslint-config-cheminfo": "^1.0.0",
-    "eslint-plugin-no-only-tests": "^2.0.0",
-    "mocha": "^3.5.3",
-    "mocha-better-spec-reporter": "^3.0.2",
-    "should": "^11.1.1"
+    "eslint": "^6.8.0",
+    "eslint-config-cheminfo": "^2.0.4",
+    "eslint-plugin-no-only-tests": "^2.4.0",
+    "jest": "^25.1.0"
   },
   "homepage": "https://github.com/mljs/cross-validation#readme",
   "dependencies": {
-    "ml-combinations": "^1.0.1",
-    "ml-confusion-matrix": "^0.3.0"
+    "ml-combinations": "^1.1.0",
+    "ml-confusion-matrix": "^0.4.0"
   }
 }
