@@ -232,7 +232,7 @@ function updateConfusionMatrix(
   }
 }
 
-function getTrainTest(features, labels, testIdx, trainIdx) {
+export function getTrainTest(features, labels, testIdx, trainIdx) {
   return {
     testFeatures: testIdx.map(function(index) {
       return features[index];
