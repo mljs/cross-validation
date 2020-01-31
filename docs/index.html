@@ -1,20 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset='utf-8' />
-  <title>ml-cross-validation 1.2.0 | Documentation</title>
+  <meta charset='utf-8'>
+  <title>ml-cross-validation 1.3.0 | Documentation</title>
+  <meta name='description' content='Cross validation utility for mljs classifiers'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
-  <link href='assets/style.css' type='text/css' rel='stylesheet' />
-  <link href='assets/github.css' type='text/css' rel='stylesheet' />
-  <link href='assets/split.css' type='text/css' rel='stylesheet' />
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
 </head>
 <body class='documentation m0'>
     <div class='flex'>
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>ml-cross-validation</h3>
-          <div class='mb1'><code>1.2.0</code></div>
+          <div class='mb1'><code>1.3.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -22,6 +23,16 @@
             type='text' />
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#getfolds'
+                  class="">
+                  getFolds
+                  
+                </a>
+                
+                </li>
               
                 
                 <li><a
@@ -53,39 +64,46 @@
                 
                 </li>
               
+                
+                <li><a
+                  href='#sampleaclass'
+                  class="">
+                  sampleAClass
+                  
+                </a>
+                
+                </li>
+              
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
-            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
           </div>
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='kfold'>
-      kFold
+    <h3 class='fl m0' id='getfolds'>
+      getFolds
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/dcb55f02ec370ad21e3637130588202a1f1678f5/src/index.js#L89-L137'>
-      <span>src/index.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/cce8a19782d238f3f8769b172157744dd1b5764d/src/getFolds.js#L6-L36'>
+      <span>src/getFolds.js</span>
       </a>
     
   </div>
   
 
-  <p>Performs k-fold cross-validation (KF-CV). KF-CV separates the data-set into k random equally sized partitions, and
-uses each as a validation set, with all other partitions used in the training set. Observations left over from if k
-does not divide the number of observations are left out of the cross-validation process.</p>
+  <p>get folds indexes</p>
 
-
-  <div class='pre p1 fill-light mt0'>kFold(Classifier: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>, features: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, labels: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, classifierOptions: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, k: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): ConfusionMatrix</div>
+    <div class='pre p1 fill-light mt0'>getFolds(features: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, k: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
   
   
 
@@ -102,7 +120,84 @@ does not divide the number of observations are left out of the cross-validation 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>Classifier</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>k</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+            = <code>5</code>)</code>
+	    number of folds, a
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='kfold'>
+      kFold
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/cce8a19782d238f3f8769b172157744dd1b5764d/src/index.js#L107-L150'>
+      <span>src/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Performs k-fold cross-validation (KF-CV). KF-CV separates the data-set into k random equally sized partitions, and
+uses each as a validation set, with all other partitions used in the training set. Observations left over from if k
+does not divide the number of observations are left out of the cross-validation process.</p>
+
+    <div class='pre p1 fill-light mt0'>kFold(Classifier: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>, features: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, labels: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, classifierOptions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, k: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): ConfusionMatrix</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>Classifier</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
 	    The classifier's to use for the cross validation. Expect ml-classifier api.
 
           </div>
@@ -111,7 +206,7 @@ does not divide the number of observations are left out of the cross-validation 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    The features for all samples of the data-set
 
           </div>
@@ -120,7 +215,7 @@ does not divide the number of observations are left out of the cross-validation 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>labels</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+            <span class='code bold'>labels</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    The classification class of all samples of the data-set
 
           </div>
@@ -129,7 +224,7 @@ does not divide the number of observations are left out of the cross-validation 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>classifierOptions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>classifierOptions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    The classifier options with which the classifier should be instantiated.
 
           </div>
@@ -138,7 +233,7 @@ does not divide the number of observations are left out of the cross-validation 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>k</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>k</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    The number of partitions to create
 
           </div>
@@ -169,12 +264,14 @@ does not divide the number of observations are left out of the cross-validation 
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -184,7 +281,7 @@ does not divide the number of observations are left out of the cross-validation 
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/dcb55f02ec370ad21e3637130588202a1f1678f5/src/index.js#L19-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/cce8a19782d238f3f8769b172157744dd1b5764d/src/index.js#L21-L29'>
       <span>src/index.js</span>
       </a>
     
@@ -195,8 +292,7 @@ does not divide the number of observations are left out of the cross-validation 
 validation set while the rest is used as the training set. This is repeated once for each observation. LOO-CV is a
 special case of LPO-CV. @see leavePout</p>
 
-
-  <div class='pre p1 fill-light mt0'>leaveOneOut(Classifier: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>, features: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, labels: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, classifierOptions: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): ConfusionMatrix</div>
+    <div class='pre p1 fill-light mt0'>leaveOneOut(Classifier: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>, features: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, labels: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, classifierOptions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): ConfusionMatrix</div>
   
   
 
@@ -213,7 +309,7 @@ special case of LPO-CV. @see leavePout</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>Classifier</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+            <span class='code bold'>Classifier</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
 	    The classifier's constructor to use for the cross validation. Expect ml-classifier
 api.
 
@@ -223,7 +319,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    The features for all samples of the data-set
 
           </div>
@@ -232,7 +328,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>labels</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+            <span class='code bold'>labels</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    The classification class of all samples of the data-set
 
           </div>
@@ -241,7 +337,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>classifierOptions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>classifierOptions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    The classifier options with which the classifier should be instantiated.
 
           </div>
@@ -272,12 +368,14 @@ api.
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -287,7 +385,7 @@ api.
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/dcb55f02ec370ad21e3637130588202a1f1678f5/src/index.js#L43-L76'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/cce8a19782d238f3f8769b172157744dd1b5764d/src/index.js#L44-L94'>
       <span>src/index.js</span>
       </a>
     
@@ -299,8 +397,7 @@ validation set while the rest is used as the training set. This is repeated as m
 ways to combine p observations from the set (unordered without replacement). Be aware that for relatively small
 data-set size this can require a very large number of training and testing to do!</p>
 
-
-  <div class='pre p1 fill-light mt0'>leavePOut(Classifier: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>, features: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, labels: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, classifierOptions: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, p: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): ConfusionMatrix</div>
+    <div class='pre p1 fill-light mt0'>leavePOut(Classifier: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>, features: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, labels: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, classifierOptions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, p: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): ConfusionMatrix</div>
   
   
 
@@ -317,7 +414,7 @@ data-set size this can require a very large number of training and testing to do
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>Classifier</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+            <span class='code bold'>Classifier</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
 	    The classifier's constructor to use for the cross validation. Expect ml-classifier
 api.
 
@@ -327,7 +424,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+            <span class='code bold'>features</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    The features for all samples of the data-set
 
           </div>
@@ -336,7 +433,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>labels</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+            <span class='code bold'>labels</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
 	    The classification class of all samples of the data-set
 
           </div>
@@ -345,7 +442,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>classifierOptions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>classifierOptions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    The classifier options with which the classifier should be instantiated.
 
           </div>
@@ -354,7 +451,7 @@ api.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>p</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>p</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    The size of the validation sub-samples' set
 
           </div>
@@ -374,6 +471,91 @@ api.
 
       
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='sampleaclass'>
+      sampleAClass
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/mljs/cross-validation/blob/cce8a19782d238f3f8769b172157744dd1b5764d/src/sampleAClass.js#L8-L61'>
+      <span>src/sampleAClass.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>A function to sample a dataset maintaining classes equilibrated</p>
+
+    <div class='pre p1 fill-light mt0'>sampleAClass(classVector: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, fraction: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>classVector</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    an array containing class or group information
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fraction</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+	    a fraction of the class to sample
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        an object with indexes
+
+      
+    
+  
+
   
 
   
