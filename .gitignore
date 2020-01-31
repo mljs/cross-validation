@@ -12,8 +12,7 @@ pids
 lib-cov
 
 # Directory for visualizer
-lib/*
-dist/*
+
 
 # Coverage directory used by tools like istanbul
 coverage
