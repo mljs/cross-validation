@@ -9,10 +9,10 @@
     "src"
   ],
   "scripts": {
-    "build": "rollup -c && cheminfo-build --entry src/index.js",
+    "build": "rollup -c",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "prepublishOnly": "npm run compile",
+    "prepublishOnly": "npm run build",
     "test": "npm run testonly && npm run eslint",
     "testonly": "jest"
   },
