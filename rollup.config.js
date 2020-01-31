@@ -4,10 +4,5 @@ export default {
     format: 'cjs',
     file: 'lib/index.js',
   },
-  external: [
-    'jest-matcher-deep-close-to',
-    'ml-combinations',
-    'ml-dataset-iris',
-    'ml-confusion-matrix',
-  ],
+  external: ['ml-combinations', 'ml-confusion-matrix'],
 };

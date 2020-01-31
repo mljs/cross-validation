@@ -52,13 +52,13 @@
     "prettier": "^1.19.1",
     "rollup": "^1.31.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "jest-matcher-deep-close-to": "^1.3.0",
+    "ml-dataset-iris": "^1.1.1"
   },
   "homepage": "https://github.com/mljs/cross-validation#readme",
   "dependencies": {
-    "jest-matcher-deep-close-to": "^1.3.0",
     "ml-combinations": "^1.1.0",
-    "ml-confusion-matrix": "^0.4.0",
-    "ml-dataset-iris": "^1.1.1"
+    "ml-confusion-matrix": "^0.4.0"
   }
 }
